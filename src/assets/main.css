@@ -1,0 +1,40 @@
+@import 'tailwindcss';
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-primary: #7747ff;
+  --color-primary-hover: #8a72ff;
+  --color-primary-outline: #8c6fff;
+  --color-accent: #ff5959;
+  --color-accent-hover: #ff7070;
+  --color-secondary: #0f0224;
+}
+
+@utility container {
+  margin: 0 auto;
+  @variant sm {
+    max-width: 540px;
+  }
+  @variant lg {
+    max-width: 960px;
+  }
+  @variant xl {
+    max-width: 1200px;
+  }
+  @variant 2xl {
+    max-width: 1320px;
+  }
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  height: 100vh;
+}
+
+#app {
+  @apply h-full;
+}
+
+@utility container {
+  margin: 0 auto;
+}

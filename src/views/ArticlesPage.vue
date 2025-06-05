@@ -23,10 +23,10 @@
 
     <button
       v-if="lastQuery && !postsPaginated.length"
-      :class="[
-        'rounded p-3 cursor-pointer text-white text-sm block mx-auto transition-all ',
-        'bg-primary hover:bg-primary-hover'
-      ]"
+      :class="`
+        rounded p-3 cursor-pointer text-white text-sm block mx-auto transition-all
+        bg-primary hover:bg-primary-hover
+      `"
       @click="postsStore.clearSearch"
     >
       <Home class="inline mr-1" :size="20" /> Ir para página inicial
@@ -38,10 +38,10 @@
 
     <button
       v-if="postsPaginated.length && !noMore"
-      :class="[
-        'rounded mt-8 p-3 cursor-pointer text-white text-sm block mx-auto transition-all ',
-        'bg-accent hover:bg-accent-hover'
-      ]"
+      :class="`
+        rounded mt-8 p-3 cursor-pointer text-white text-sm block mx-auto transition-all
+        bg-accent hover:bg-accent-hover
+      `"
       @click="postsStore.viewmore()"
     >
       <LoaderCircle

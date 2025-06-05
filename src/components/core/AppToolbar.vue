@@ -1,9 +1,9 @@
 <template>
   <div
-    :class="[
-      'fixed z-16 w-screen shadow-lg py-2 bg-white border-b border-white ',
-      'dark:bg-neutral-900 dark:border-neutral-700'
-    ]"
+    :class="`
+      fixed z-16 w-screen shadow-lg py-2 bg-white border-b border-white
+      dark:bg-neutral-900 dark:border-neutral-700
+    `"
   >
     <div class="container mx-auto px-4 flex justify-between">
       <RouterLink to="/">

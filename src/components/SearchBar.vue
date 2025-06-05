@@ -6,29 +6,29 @@
       </h1>
     </div>
     <div
-      :class="[
-        'flex relative bg-white border rounded-full w-full h-[56px] group ',
-        'dark:bg-neutral-800 dark:border-neutral-700'
-      ]"
+      :class="`
+        flex relative bg-white border rounded-full w-full h-[56px] group
+        dark:bg-neutral-800 dark:border-neutral-700
+      `"
     >
       <input
         v-model="query"
         type="text"
         placeholder="Digite aqui para buscar..."
-        :class="[
-          'grow px-5 outline-none pr-4 rounded-full placeholder:text-sm text-sm relative',
-          'dark:placeholder-neutral-400 dark:text-white'
-        ]"
+        :class="`
+          grow px-5 outline-none pr-4 rounded-full placeholder:text-sm text-sm relative
+          dark:placeholder-neutral-400 dark:text-white
+        `"
         @keyup.enter="research"
       />
 
       <button
-        :class="[
-          'bg-primary hover:bg-primary-hover rounded-full w-10 h-10 text-white flex items-center justify-center ',
-          'transition-all cursor-pointer absolute right-2 top-2/4 -translate-y-2/4 ',
-          'disabled:cursor-not-allowed disabled:bg-white disabled:text-black ',
-          'dark:disabled:text-neutral-400 dark:disabled:bg-neutral-800'
-        ]"
+        :class="`
+          bg-primary hover:bg-primary-hover rounded-full w-10 h-10 text-white flex items-center justify-center
+          transition-all cursor-pointer absolute right-2 top-2/4 -translate-y-2/4
+          disabled:cursor-not-allowed disabled:bg-white disabled:text-black
+          dark:disabled:text-neutral-400 dark:disabled:bg-neutral-800
+        `"
         :disabled="!query"
         @click="research"
       >
@@ -36,10 +36,10 @@
       </button>
       <button
         v-show="!!lastQuery"
-        :class="[
-          'text-xs absolute right-14 top-2/4 -translate-y-2/4 cursor-pointer p-1 invisible ',
-          'group-hover:visible dark:text-white'
-        ]"
+        :class="`
+          text-xs absolute right-14 top-2/4 -translate-y-2/4 cursor-pointer p-1 md:invisible
+          group-hover:visible dark:text-white
+        `"
         @click="clear"
       >
         Limpar

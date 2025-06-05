@@ -1,9 +1,8 @@
-import { createRouter, createWebHistory } from 'vue-router';
+import { createRouter, createWebHashHistory } from 'vue-router';
 import Articles from '@/views/ArticlesPage.vue';
-import ArticleViewPage from '@/views/ArticleViewPage.vue';
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHashHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
@@ -14,7 +13,7 @@ const router = createRouter({
       path: '/article/:id',
       name: 'articleView',
       props: true,
-      component: ArticleViewPage
+      component: () => import('@/views/ArticleViewPage.vue')
     }
   ]
 });

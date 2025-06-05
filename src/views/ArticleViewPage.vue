@@ -3,10 +3,10 @@
     <SearchBar />
 
     <div
-      :class="[
-        'shadow-lg bg-white p-6 rounded-lg border border-white overflow-hidden ',
-        'dark:border-neutral-700 dark:bg-neutral-800'
-      ]"
+      :class="`
+        shadow-lg bg-white p-6 rounded-lg border border-white overflow-hidden
+        dark:border-neutral-700 dark:bg-neutral-800
+      `"
     >
       <div
         class="flex flex-col-reverse flex-col md:flex-row gap-4 items-center"
@@ -22,8 +22,7 @@
 
         <div class="w-full md:w-2/5">
           <img
-            v-if="article.image"
-            :src="getPath(article.image)"
+            src="@/assets/images/default-thumbnail.png"
             :alt="`Thumbnail article ${article.title}`"
             class="rounded-lg block mx-auto"
           />
@@ -32,13 +31,14 @@
     </div>
 
     <button
-      :class="[
-        'rounded p-3 mt-10 mb-5 cursor-pointer text-white text-sm block mx-auto transition-all ',
-        'bg-primary hover:bg-primary-hover'
-      ]"
+      :class="`
+        rounded p-3 mt-10 mb-5 cursor-pointer text-white text-sm block mx-auto transition-all
+        bg-primary hover:bg-primary-hover
+      `"
       @click="goHome"
     >
-      <Home class="inline mr-1" :size="20" /> Ir para página inicial
+      <Home class="inline mr-1" :size="20" />
+      Ir para página inicial
     </button>
   </div>
 </template>
@@ -46,7 +46,6 @@
 import { useRouter } from 'vue-router';
 import { onMounted, reactive } from 'vue';
 import { usePosts } from '@/stores/posts';
-import { getPath } from '@/utils/path';
 import { Home } from 'lucide-vue-next';
 import SearchBar from '@/components/SearchBar.vue';
 

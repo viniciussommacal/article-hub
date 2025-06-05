@@ -11,9 +11,10 @@ export const usePosts = defineStore('posts', {
     loading: false,
     loadingMore: false
   }),
+
   getters: {
     postsFiltered() {
-      return this.posts.filter((post) => {
+      return this.posts.filter(post => {
         return post.title.toLowerCase().includes(this.lastQuery.toLowerCase());
       });
     },
@@ -30,21 +31,21 @@ export const usePosts = defineStore('posts', {
       return this.page === this.totalPages;
     }
   },
+
   actions: {
     async load() {
       try {
         this.loading = true;
         const response = await getArticles();
 
-        this.posts = response.map((item) => {
+        this.posts = response.map(item => {
           return {
             id: item.id,
             title: item.title,
             summary:
               item.body.length > 100
                 ? `${item.body.slice(0, 100)} ...`
-                : item.body,
-            image: `@/assets/images/default-thumbnail.png`
+                : item.body
           };
         });
 
@@ -61,8 +62,9 @@ export const usePosts = defineStore('posts', {
       }
 
       this.loading = true;
-      // simula o tempo de carregamento a uma chamada na API
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+
+      // Simula o tempo de carregamento a uma chamada na API
+      await new Promise(resolve => setTimeout(resolve, 1000));
 
       this.page = 1;
       this.lastQuery = this.query;
@@ -77,12 +79,10 @@ export const usePosts = defineStore('posts', {
 
         this.loading = false;
 
-        return {
-          ...response,
-          image: `@/assets/images/default-thumbnail.png`
-        };
+        return response;
       } catch (error) {
         this.loading = false;
+        throw error;
       }
     },
 
@@ -93,7 +93,7 @@ export const usePosts = defineStore('posts', {
 
       this.loadingMore = true;
 
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      await new Promise(resolve => setTimeout(resolve, 1000));
 
       this.loadingMore = false;
 
